@@ -1,0 +1,27 @@
+{
+	"name": "file-templates-plus",
+	"main": "./lib/file-templates-plus",
+	"version": "0.1.0",
+	"description": "file-templates:new-file + tree-view:add-file",
+	"keywords": [
+	],
+	"activationCommands": {
+		"atom-workspace": [
+			"file-templates-plus:delete-template",
+			"file-templates-plus:new-file",
+			"file-templates-plus:new-template",
+			"file-templates-plus:update-template"
+		]
+	},
+	"repository": "https://github.com/tetutaro/file-templates-plus",
+	"license": "MIT",
+	"engines": {
+		"atom": ">=1.0.0 <2.0.0"
+	},
+	"dependencies": {
+		"atom-space-pen-views": "^0",
+		"fs-plus": "^2.0.4",
+		"space-pen": "^4",
+		"underscore": "^1.8.2"
+	}
+}

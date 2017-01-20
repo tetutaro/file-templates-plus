@@ -1,0 +1,27 @@
+"menu": [
+	{
+		"label": "Packages",
+		"submenu": [
+			"label": "File Templates Plus",
+			"submenu": [
+				{
+					"label": "New template from this file",
+					"command": "file-templates-plus:new-template"
+				},
+				{
+					"label": "New file from from template",
+					"command": "file-templates-plus:new-file"
+
+				},
+				{
+					"label": "Delete a template",
+					"command": "file-templates-plus:delete-template"
+				},
+				{
+					"label": "Update a template",
+					"command": "file-templates-plus:update-template"
+				}
+			]
+		]
+	}
+]
