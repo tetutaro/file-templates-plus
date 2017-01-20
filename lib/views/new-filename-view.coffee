@@ -2,6 +2,7 @@
 {View} = require 'space-pen'
 fs = require 'fs-plus'
 path = require 'path'
+mkdirp = require 'mkdirp'
 
 Macros = require '../macros'
 
@@ -38,6 +39,13 @@ module.exports =
 			@destroy()
 			fname = fname.replace(/\s+$/, '') # Remove trailing whitespace
 			filename = path.join(@dname, fname + @template.ext)
+			dirname = path.dirname(filename)
+			if fs.isDirectorySync(dirname)
+				if fs.existsSync(filename)
+					atom.notifications.addError("#{filename} is aleardy exists.")
+					return
+			else
+				mkdirp.sync(dirname)
 			hash = @template.hash
 			grammarScope = @template.grammarScope
 			atom.workspace.open().then ->
@@ -47,3 +55,4 @@ module.exports =
 				if grammar
 					atom.workspace.getActiveTextEditor().setGrammar(grammar)
 				atom.workspace.getActiveTextEditor().saveAs(filename)
+				atom.notifications.addSuccess("#{filename} is created.")
